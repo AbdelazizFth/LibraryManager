@@ -16,7 +16,8 @@ namespace LibraryManager
             Console.WriteLine("3. Rechercher un livre par titre");
             Console.WriteLine("4. Emprunter un livre");
             Console.WriteLine("5. Retourner un livre");
-            Console.WriteLine("6. Quitter");
+            Console.WriteLine("6. Supprimer un livre");
+            Console.WriteLine("7. Quitter");
             Console.Write("Choisissez une option : ");
             string choice = Console.ReadLine()?.Trim();
 
@@ -130,6 +131,29 @@ namespace LibraryManager
             }
             else
                 Console.Write("Le livre existe dans la bibliothèque !");
+        }
+
+        // Supprimer un livre.
+        public void RemoveBook(List<Book> books)
+        {
+            Console.Write("Quel livre voulez vous supprimer ? ");
+            string bookTitle = Console.ReadLine();
+
+            var book = books.FirstOrDefault(c => c.title == bookTitle);
+            if (book != null)
+            {
+                for (int i = 0; i < books.Count; i++)
+                {
+                    if (books[i] == book)
+                    {
+                        books.RemoveAt(i);
+                    }
+                }
+                Console.Write("Le livre a été bien supprimer.");
+            }
+            else
+                Console.Write("Le livre n'existe pas dans la bibliothèque !");
+
         }
     }
 }
