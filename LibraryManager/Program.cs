@@ -30,6 +30,9 @@ namespace LibraryManager
                         methods.ReturnBook(library);
                         break;
                     case "6":
+                        methods.RemoveBook(library);
+                        break;
+                    case "7":
                         Console.WriteLine("A la prochaine");
                         return;
                     default:
